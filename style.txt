@@ -1,0 +1,154 @@
+-- create query
+
+$sql = "INSERT INTO Players(first_name, last_name, date_of_birth, email)
+values()
+"
+
+$date1
+
+
+
+ elseif($_POST['action'] === 'insert-timecontrols'){
+  ?>
+  <?php
+  $controlName = !empty($_POST['name']) ? $_POST['name'] : null;
+  $controlDescription = !empty($_POST['controlDescription']) ? $_POST['description'] : null;
+  $initialTime = !empty($_POST['initial-time']) ? $_POST['initial-time'] : null;
+  $increment = !empty($_POST['increment']) ? $_POST['increment'] : null;
+  $unit = !empty($_POST['unit']) ? $_POST['unit'] : null;
+  $maxtime = !empty($_POST['maxtime']) ? $_POST['maxtime'] : null;
+
+  $sql = "INSERT INTO control_name, description, initial_time, increment, time_unit, max_time
+  VALUES(:controlName, :controlDescription, :initialTime, :increment, :unit, :maxtime);
+  ";
+  $controlStmt= $pdo->prepare($sql);
+  if($controlName == null){
+    $controlStmt->bindParam(':controlName', $controlName, PDO::PARAM_NULL);
+  } else {
+    $controlStmt->bindParam(':controlName', $controlName, PDO::PARAM_STR);
+  }
+  if($controlDescription == null){
+    $controlStmt->bindParam(':controlDescription', $controlDescriptionm PDO::PARAM_NULL);
+  } else{
+    $controlStmt->bindParam(':controlDescription', $controlDescriptionm PDO::PARAM_STR);
+  }
+  if($initialTime == null){
+    $controlStmt->bindParam(':initialTime', $initialTime PDO::PARAM_NULL);
+  } else{
+    $controlStmt->bindParam(':initialTime', $initialTime PDO::PARAM_STR);
+  }
+  if($increment == null){
+    $controlStmt->bindParam(':increment', $increment PDO::PARAM_NULL);
+  } else{
+    $controlStmt->bindParam(':increment', $increment PDO::PARAM_STR);
+  }
+  if($unit == null){
+    $controlStmt->bindParam(':unit', $unit PDO::PARAM_NULL);
+  } else{
+    $controlStmt->bindParam(':unit', $unit PDO::PARAM_STR);
+  }
+  if($maxtime== null){
+    $controlStmt->bindParam(':maxtime', $maxtime PDO::PARAM_NULL);
+  } else{
+    $controlStmt->bindParam(':maxtime', $maxtime PDO::PARAM_STR);
+  }
+
+  $data = [
+    'controlName' => $controlName,
+    'description' => $description,
+    'initial-time' => $increment,
+    'unit' => $unit,
+    'maxtime' => $maxtime,
+  ];
+
+  $controlStmt->execute($data);
+
+}
+
+elseif($_POST['action'] === 'insert-openings'){
+  ?>
+  <h1 id="table-header">kadsh</h1>
+  <?php
+  $openingName = !empty($_POST['opening-name'])? $_POST['opening-name'] : null;
+  $openingPgn = !empty($_POST['opening-pgn'])? $_POST['opening-pgn'] : null;
+  // query to search for the opening of the same $opeingName
+  $rows = $pdo->query("SELECT opening_name from Chess_openings WHERE(opening_name = '$openingName') LIMIT 1;");
+
+  // if($rows -> rowCount() == 0){
+    $sql = "
+    INSERT INTO Chess_openings(opening_name, opening_PGN)
+    VALUES(:openingName, :openingPgn);
+    ";
+    
+    $openingStmt= $pdo->prepare($sql);
+    if($openingName == null){
+      $openingStmt->bindParam(':openingName', $openingName, PDO::PARAM_NULL);
+    }else{
+      $openingStmt->bindParam(':openingName', $openingName, PDO::PARAM_STR);
+    }
+    if($openingPgn == null){
+      $openingStmt->bindParam(':openingPgn', $openingPgn, PDO::PARAM_NULL);
+    }else{
+      $openingStmt->bindParam(':openingPgn', $openingPgn, PDO::PARAM_STR);
+    }
+
+    $data = [
+      'openingName' => $openingName,
+      'openingPgn' => $openingPgn,
+    ];
+
+    $openingStmt = $pdo->prepare($sql);
+    $openingStmt->execute($data);
+  // } else {
+    ?>
+    <h1 id="table-header">
+      <?php echo 'Chess opening'. $openingName .' already exists in the database'. ?>
+    </h1>
+    <?php
+  // }
+}
+
+01.07.2024; 12:13
+
+elseif($_POST['action'] === 'insert-openings'){
+  $oldOpeningName = !empty($_POST['opening-name'])? $_POST['opening-name'] : null;
+  $openingName = addslashes($oldOpeningName);
+  $openingPgn = !empty($_POST['opening-pgn'])? $_POST['opening-pgn'] : null;
+  // query to search for the opening of the same $opeingName
+  $rows = $pdo->query("SELECT opening_name from Chess_openings WHERE(opening_name = '$openingName') LIMIT 1;");
+
+  // if($rows -> rowCount() == 0){
+  $sql = "
+  INSERT INTO Chess_openings(opening_name, opening_PGN)
+  VALUES(:openingName, :openingPgn);
+  ";
+
+  if($rows -> rowCount() != 0){
+    ?>
+    <h1 id="table-header">
+      <?php echo 'Chess opening '.$oldOpeningName. ' already exists in the database'  ?>
+    </h1>
+    <?php
+  } else {
+    $openingStmt= $pdo->prepare($sql);
+    if($openingName  null){
+      $openingStmt->bindParam(':openingName', $openingName, PDO::PARAM_NULL);
+    }else{
+      $openingStmt->bindParam(':openingName', $openingName, PDO::PARAM_STR);
+    }
+    if($openingPgn == null){
+      $openingStmt->bindParam(':openingPgn', $openingPgn, PDO::PARAM_NULL);
+    }else{
+      $openingStmt->bindParam(':openingPgn', $openingPgn, PDO::PARAM_STR);
+    }
+
+    $data = [
+      'openingName' => $openingName,
+      'openingPgn' => $openingPgn,
+    ];
+
+    $openingStmt = $pdo->prepare($sql);
+    $openingStmt->execute($data);
+  }
+  
+}

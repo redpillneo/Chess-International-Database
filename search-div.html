@@ -1,0 +1,48 @@
+  <div id="search-div">
+    <div id="search-box-main">
+      <div id="search-box-title-div">
+        <p>search by player<p>
+      </div>
+      <div id="search-box-player-div">
+        <form action="search-page.php" method="get">
+          <div id="search-by-player-div">
+            <fieldset id="div1">
+              <div class="player-header"><p>Player 1</p></div>
+              
+              <div class="player-name-input-div">
+                <p>first name</p>
+                <input type="text" name="p1-firstname" size="20"  autofocus="autofocus">
+                <p>last name</p>
+                <input type="text" name="p1-lastname" size="20"  autofocus="autofocus">
+                <!-- include  the inputs for second player -->
+              </div>
+            </fieldset>
+            <fieldset id="div2">
+            <div class="player-header"><p>Player 2</p></div>
+              <div class="player-name-input-div">
+                <p>first name</p>
+                <input type="text" name="p2-firstname" size="20" autofocus="autofocus">
+                <p>last name</p>
+                <input type="text" name="p2-lastname" size="20"  autofocus="autofocus">
+              </div>
+            </fieldset>
+          </div>
+          <fieldset id="opening-div">
+            <div id="opening-header"><p>search by opening</p></div>
+            <div>
+              <input type="text" placeholder="chess opening" name="opening" id="opening-query" size="25">
+            </div>
+          </fieldset>
+          <fieldset id="date-div">
+            <div><p>date</p></div>
+            <div id="search-date-div">
+              <input type="text" placeholder="year" name="date" id="date" size="10">
+            </div>
+          </fieldset>
+          <div id="search-button-div">
+            <input type="submit" value="Search!" id="search-button">
+          </div>
+        </form>
+      </div>
+      </div>
+  </div>

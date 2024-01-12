@@ -1,0 +1,41 @@
+[33mcommit 90aa5bbab91ca58152005f2e9ea7a5cb5b96f0b7[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: RedPill-Neo <nathanielenriquecatalaneulin@gmail.com>
+Date:   Sun Jan 7 08:32:21 2024 +0800
+
+    working insert players with playerdetails
+
+[33mcommit 79503ca1b64bb9ecb76be6269bc2c52a7b2de800[m
+Author: RedPill-Neo <nathanielenriquecatalaneulin@gmail.com>
+Date:   Sun Jan 7 08:14:56 2024 +0800
+
+    working players and insert chessopenings w/ check conditions
+
+[33mcommit aa4c98500eddd49d6e4571d5cf4cab015960a2de[m
+Author: RedPill-Neo <nathanielenriquecatalaneulin@gmail.com>
+Date:   Sun Jan 7 08:02:42 2024 +0800
+
+    working insert players
+
+[33mcommit d6efc8816255937aebd4f02034e42293680a8250[m
+Author: RedPill-Neo <nathanielenriquecatalaneulin@gmail.com>
+Date:   Thu Jan 4 23:34:04 2024 +0800
+
+    everything well until I decided to display tables on admin page
+
+[33mcommit dff9b50ce414d55aee4a4b2f194af70cd2fb0104[m
+Author: RedPill-Neo <nathanielenriquecatalaneulin@gmail.com>
+Date:   Tue Jan 2 17:07:22 2024 +0800
+
+    working error handling when there is missing input in fields
+
+[33mcommit cda99b3931b31cb968ec7a0d7fb8dfa9b353f7c1[m
+Author: RedPill-Neo <nathanielenriquecatalaneulin@gmail.com>
+Date:   Sun Dec 31 18:45:39 2023 +0800
+
+    working players and date queries
+
+[33mcommit 3859c55309b3768081652a23eac705b759fac7ff[m
+Author: RedPill-Neo <nathanielenriquecatalaneulin@gmail.com>
+Date:   Sun Dec 31 03:50:42 2023 +0800
+
+    working table, displayed
